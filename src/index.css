@@ -1,0 +1,69 @@
+/* Font Open Sans font-family: 'Open Sans', sans-serif; */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap");
+
+/* Variables */
+:root {
+  --font-dark: #1e234b;
+  --font-muted-dark: #adafbd;
+  --font-light: #fff;
+}
+
+/* Main Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+.App {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.container {
+  max-width: 1780px;
+}
+
+/* Header Styles */
+.header {
+  display: flex;
+  justify-content: center;
+  height: 130px;
+  width: 100%;
+  border-bottom: 1px solid black;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.header-inner h1 {
+  color: var(--font-dark);
+}
+
+.header-inner ul {
+  display: flex;
+  list-style-type: none;
+}
+
+.header-inner i {
+  font-size: 20px;
+  align-self: center;
+}
+
+.header-inner ul li {
+  margin: 0px 15px;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--font-muted-dark);
+  letter-spacing: 0.5px;
+}
+
+.header-inner ul li:hover {
+  color: var(--font-dark);
+}
