@@ -1,0 +1,107 @@
+/* Main Title Styles */
+.main-title {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
+  padding: 120px 130px;
+  background-image: linear-gradient(
+      0deg,
+      rgb(39, 39, 39) 0%,
+      rgba(20, 20, 20, 0.46) 30%
+    ),
+    url("https://cdn.wallpapersafari.com/99/66/yokJde.jpg");
+  background-position: center center;
+  background-size: cover;
+  border-radius: 5px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  color: var(--font-light);
+}
+
+.main-title p {
+  max-width: 450px;
+  margin-bottom: 30px;
+}
+
+.main-title h1 {
+  font-size: 64px;
+  margin-bottom: 5px;
+}
+
+.main-title button {
+  margin-top: 15px;
+  padding: 20px 35px;
+  background: var(--font-light);
+  color: var(--font-dark);
+  border: none;
+  border-radius: 30px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  box-shadow: rgba(49, 49, 49, 0.2) 0px 8px 24px;
+  font-size: 15px;
+  transition: 0.2s ease;
+}
+
+.main-title button i {
+  margin-left: 15px;
+}
+
+.main-title button:hover {
+  cursor: pointer;
+  color: var(--font-light);
+  background-color: var(--font-dark);
+}
+
+/* Popular Movies Styles */
+.hp-movies {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
+}
+
+.hp-movies_more {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  margin: 55px 0px 25px;
+}
+
+.hp-movies_more h2 {
+  color: var(--font-dark);
+  letter-spacing: 0.5px;
+}
+
+.hp-movies_more p {
+  color: var(--font-muted-dark);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: 0.2s ease;
+}
+
+.hp-movies_more p:hover {
+  cursor: pointer;
+  color: var(--font-dark);
+}
+
+.img-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.imgs {
+  width: 385px;
+  height: 545px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  transition: 0.2s ease;
+  border-radius: 5px;
+}
+
+.imgs:hover {
+  transform: scale(1.05);
+}

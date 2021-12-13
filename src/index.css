@@ -16,8 +16,8 @@
   font-family: "Open Sans", sans-serif;
 }
 
-body {
-  height: 100vh;
+.App {
+  min-height: 100vh;
 }
 
 footer {
@@ -25,6 +25,7 @@ footer {
   justify-content: center;
   align-items: center;
   width: 100%;
+  margin-top: auto;
 }
 
 footer .ft {
@@ -55,146 +56,4 @@ main {
   align-items: center;
   flex-direction: column;
   width: 100%;
-}
-
-.imgs {
-  width: 385px;
-  height: 545px;
-}
-
-/* Header Styles */
-.header {
-  display: flex;
-  justify-content: center;
-  height: 130px;
-  width: 100%;
-}
-
-.header-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-
-.header-inner h1 {
-  color: var(--font-dark);
-}
-
-.header-inner ul {
-  display: flex;
-  list-style-type: none;
-}
-
-.header-inner i {
-  font-size: 20px;
-  align-self: center;
-}
-
-.header-inner ul li {
-  margin: 0px 15px;
-  font-size: 16px;
-  font-weight: 500;
-  color: var(--font-muted-dark);
-  letter-spacing: 0.5px;
-  transition: 0.2s ease;
-}
-
-.header-inner ul li:hover {
-  color: var(--font-dark);
-  cursor: pointer;
-}
-
-/*                                                                                    HomePage Styles                                                                                                           */
-/* Main Title Styles */
-.main-title {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: column;
-  width: 100%;
-  padding: 120px 130px;
-  background-image: linear-gradient(
-      0deg,
-      rgb(39, 39, 39) 0%,
-      rgba(20, 20, 20, 0.46) 30%
-    ),
-    url("https://cdn.wallpapersafari.com/99/66/yokJde.jpg");
-  background-position: center center;
-  background-size: cover;
-  color: var(--font-light);
-}
-
-.main-title p {
-  max-width: 450px;
-  margin-bottom: 30px;
-}
-
-.main-title h1 {
-  font-size: 64px;
-  margin-bottom: 5px;
-}
-
-.main-title button {
-  margin-top: 15px;
-  padding: 20px 35px;
-  background: var(--font-light);
-  color: var(--font-dark);
-  border: none;
-  border-radius: 30px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  box-shadow: rgba(49, 49, 49, 0.2) 0px 8px 24px;
-  font-size: 15px;
-  transition: 0.2s ease;
-}
-
-.main-title button i {
-  margin-left: 15px;
-}
-
-.main-title button:hover {
-  cursor: pointer;
-  color: var(--font-light);
-  background-color: var(--font-dark);
-}
-
-/* Recommended Movies Styles */
-.recommended-movies {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: column;
-  width: 100%;
-}
-
-.recommended-movies_more {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  align-items: center;
-  margin: 55px 0px 35px;
-}
-
-.recommended-movies_more h2 {
-  color: var(--font-dark);
-  letter-spacing: 0.5px;
-}
-
-.recommended-movies_more p {
-  color: var(--font-muted-dark);
-  font-weight: 500;
-  letter-spacing: 0.5px;
-}
-
-.recommended-movies_more p:hover {
-  cursor: pointer;
-  color: var(--font-dark);
-}
-
-.img-container {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }

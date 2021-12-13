@@ -1,0 +1,42 @@
+.header {
+  display: flex;
+  justify-content: center;
+  height: 130px;
+  width: 100%;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.header-inner ul {
+  display: flex;
+  list-style-type: none;
+}
+
+.header-inner i {
+  font-size: 20px;
+  align-self: center;
+}
+
+.header-inner h1 a {
+  text-decoration: none;
+  color: var(--font-dark);
+}
+
+.header-inner ul a {
+  margin: 0px 15px;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--font-muted-dark);
+  letter-spacing: 0.5px;
+  transition: 0.2s ease;
+  text-decoration: none;
+}
+
+.header-inner ul a:hover {
+  color: var(--font-dark);
+}
