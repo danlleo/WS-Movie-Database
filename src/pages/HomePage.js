@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../components/styles/HomePage.css";
 
 export default function HomePage() {
@@ -23,7 +24,7 @@ export default function HomePage() {
       <div className="hp-movies container">
         <div className="hp-movies_more">
           <h2>Popular Movies</h2>
-          <p>See More</p>
+          <Link to="/popular">See More</Link>
         </div>
         <div className="img-container">
           <img
@@ -51,7 +52,7 @@ export default function HomePage() {
       <div className="hp-movies container">
         <div className="hp-movies_more">
           <h2>Trending Movies</h2>
-          <p>See More</p>
+          <Link to="/trending">See More</Link>
         </div>
         <div className="img-container">
           <img
@@ -79,7 +80,7 @@ export default function HomePage() {
       <div className="hp-movies container">
         <div className="hp-movies_more">
           <h2>Top Rated Movies</h2>
-          <p>See More</p>
+          <Link to="/top">See More</Link>
         </div>
         <div className="img-container">
           <img

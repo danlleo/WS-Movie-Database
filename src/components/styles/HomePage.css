@@ -4,7 +4,6 @@
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
-  width: 100%;
   padding: 120px 130px;
   background-image: linear-gradient(
       0deg,
@@ -59,7 +58,6 @@
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
-  width: 100%;
 }
 
 .hp-movies_more {
@@ -75,14 +73,14 @@
   letter-spacing: 0.5px;
 }
 
-.hp-movies_more p {
+.hp-movies_more a {
   color: var(--font-muted-dark);
   font-weight: 500;
   letter-spacing: 0.5px;
   transition: 0.2s ease;
 }
 
-.hp-movies_more p:hover {
+.hp-movies_more a:hover {
   cursor: pointer;
   color: var(--font-dark);
 }

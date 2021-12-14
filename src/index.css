@@ -6,6 +6,7 @@
   --font-dark: #1e234b;
   --font-muted-dark: #adafbd;
   --font-light: #fff;
+  --font-item: #585858;
 }
 
 /* Main Styles */
@@ -36,7 +37,7 @@ footer .ft {
   border-top: 1px solid #e3e3e3;
   width: 100%;
   height: 100px;
-  color: var(--font-muted-dark)
+  color: var(--font-muted-dark);
 }
 
 .App {
@@ -48,6 +49,7 @@ footer .ft {
 
 .container {
   max-width: 1780px;
+  width: 100%;
 }
 
 main {
@@ -56,4 +58,8 @@ main {
   align-items: center;
   flex-direction: column;
   width: 100%;
+}
+
+a {
+  text-decoration: none;
 }
