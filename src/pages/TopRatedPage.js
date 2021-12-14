@@ -1,90 +1,65 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import MovieDiscoveryItem from "../components/MovieDiscoveryItem";
+import axios from "axios";
+import "../components/styles/MovieItems.css";
+import { PuffLoader } from "react-spinners";
 
 export default function TopRatedPage() {
+  const [movieDiscoveryData, setMovieDiscoveryData] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [pages, setPages] = useState(1);
+
+  async function getDiscoveryMovie() {
+    setLoading(true);
+    await axios
+      .get(
+        `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=${pages}`
+      )
+      .then((response) => {
+        setMovieDiscoveryData([
+          ...movieDiscoveryData,
+          ...response.data.results,
+        ]);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setLoading(false);
+      });
+  }
+
+  useEffect(() => {
+    getDiscoveryMovie();
+  }, [pages]);
+
+  useEffect(() => {
+    getDiscoveryMovie();
+  }, []);
+
   return (
     <div className="movie-main">
       <div className="movie-container container">
-        <div className="movie-container_movies-item">
-          <Link to="#">
-            <img
-              class="img-category"
-              src="https://www.themoviedb.org/t/p/w780/h8C7KZwCJO5DN7jPifc7AoIjx7k.jpg"
-              alt="up"
-            />
-          </Link>
-          <div className="movie-container_movies-item_description">
-            <Link to="#" className="link-title">
-              <h2>UP Animation Movie</h2>
-            </Link>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sit
-              amet libero interdum, convallis sapien vel, ornare nulla.
-              Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-              posuere cubilia curae; Donec malesuada libero suscipit purus
-              tincidunt sagittis. Nulla gravida ante sit amet libero bibendum
-              fermentum.
-            </p>
-
-            <Link to="#" className="link-more">
-              See more
-            </Link>
-          </div>
+        <div className="split">
+          <h2>Top Rated Movies</h2>
         </div>
-        <div className="movie-container_movies-item">
-          <Link to="#">
-            <img
-              class="img-category"
-              src="https://cdn.mos.cms.futurecdn.net/2NBcYamXxLpvA77ciPfKZW-1200-80.jpg"
-              alt="up"
-            />
-          </Link>
-          <div className="movie-container_movies-item_description">
-            <Link to="#" className="link-title">
-              <h2>The Dark Khight</h2>
-            </Link>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sit
-              amet libero interdum, convallis sapien vel, ornare nulla.
-              Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-              posuere cubilia curae; Donec malesuada libero suscipit purus
-              tincidunt sagittis. Nulla gravida ante sit amet libero bibendum
-              fermentum.
-            </p>
 
-            <Link to="#" className="link-more">
-              See more
-            </Link>
-          </div>
-        </div>
-        <div className="movie-container_movies-item">
-          <Link to="#">
-            <img
-              class="img-category"
-              src="https://cinemadetective.com/wp-content/uploads/2020/05/forrest-gump.jpg"
-              alt="up"
+        {movieDiscoveryData.map((item) => {
+          return (
+            <MovieDiscoveryItem
+              key={`${item.id}`}
+              movieName={item.title}
+              movieDescription={item.overview}
+              movieImage={item.backdrop_path}
+              movieId={item.id}
             />
-          </Link>
-          <div className="movie-container_movies-item_description">
-            <Link to="#" className="link-title">
-              <h2>Forest Gump</h2>
-            </Link>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sit
-              amet libero interdum, convallis sapien vel, ornare nulla.
-              Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-              posuere cubilia curae; Donec malesuada libero suscipit purus
-              tincidunt sagittis. Nulla gravida ante sit amet libero bibendum
-              fermentum.
-            </p>
-
-            <Link to="#" className="link-more">
-              See more
-            </Link>
-          </div>
-        </div>
+          );
+        })}
         <div className="btn-container">
-          <button>Load More</button>
+          {loading ? (
+            <PuffLoader />
+          ) : (
+            <button onClick={() => setPages(pages + 1)}>Load More</button>
+          )}
         </div>
       </div>
     </div>

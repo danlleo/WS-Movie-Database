@@ -21,6 +21,19 @@
   min-height: 100vh;
 }
 
+.split {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+  margin-bottom: 60px;
+  border-radius: 5px;
+  background: var(--font-dark);
+  color: var(--font-light);
+  padding-left: 40px;
+}
+
 footer {
   display: flex;
   justify-content: center;

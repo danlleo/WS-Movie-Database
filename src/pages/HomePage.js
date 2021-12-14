@@ -18,7 +18,7 @@ export default function HomePage() {
         </p>
         <p>Release date: 12 December 2004</p>
         <button>
-          Watch Trailer <i className="fas fa-play"></i>
+          Watch Trailer <i className="fas fa-play" />
         </button>
       </div>
       <div className="hp-movies container">

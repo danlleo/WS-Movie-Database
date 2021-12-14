@@ -63,4 +63,9 @@
   background: var(--font-dark);
   color: var(--font-light);
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  transition: 0.2s ease;
+}
+
+.btn-container button:hover {
+  box-shadow: rgba(10, 10, 12, 0.2) 0px 14px 35px 0px;
 }

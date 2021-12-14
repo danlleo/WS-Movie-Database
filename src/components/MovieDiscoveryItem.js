@@ -4,14 +4,15 @@ import { Link } from "react-router-dom";
 export default function MovieDiscoveryItem({
   movieName,
   movieDescription,
+  movieImage,
   movieId,
 }) {
   return (
     <div className="movie-container_movies-item">
       <Link to={`/movie/${movieId}`}>
         <img
-          class="img-category"
-          src="https://www.themoviedb.org/t/p/w780/h8C7KZwCJO5DN7jPifc7AoIjx7k.jpg"
+          className="img-category"
+          src={`https://image.tmdb.org/t/p/w1280/${movieImage}`}
           alt="up"
         />
       </Link>
