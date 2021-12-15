@@ -5,12 +5,6 @@
   align-items: flex-start;
   flex-direction: column;
   padding: 120px 130px;
-  background-image: linear-gradient(
-      0deg,
-      rgb(39, 39, 39) 0%,
-      rgba(20, 20, 20, 0.46) 30%
-    ),
-    url("https://cdn.wallpapersafari.com/99/66/yokJde.jpg");
   background-position: center center;
   background-size: cover;
   border-radius: 5px;

@@ -9,7 +9,6 @@ export default function GenerePage() {
         <div className="split">
           <h2>Movie Generes</h2>
         </div>
-
         <ul>
           <li>
             <Link to="/genere/28">Action</Link>

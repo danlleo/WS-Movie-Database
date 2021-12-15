@@ -12,8 +12,12 @@ export default function MovieDiscoveryItem({
       <Link to={`/movie/${movieId}`}>
         <img
           className="img-category"
-          src={`https://image.tmdb.org/t/p/w1280/${movieImage}`}
-          alt="up"
+          src={
+            movieImage == null
+              ? "https://avatanplus.com/files/resources/original/5aae7d3da9fb816239993900.png"
+              : `https://image.tmdb.org/t/p/w1280/${movieImage}`
+          }
+          alt={movieName}
         />
       </Link>
       <div className="movie-container_movies-item_description">
