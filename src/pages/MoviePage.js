@@ -1,5 +1,7 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import SimilarMovies from "../components/SimilarMovies";
 import { PuffLoader } from "react-spinners";
@@ -9,7 +11,23 @@ export default function MoviePage() {
   const [movieData, setMovieData] = useState([]);
   const [similarMovies, setSimilarMovies] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [trailer, setTrailer] = useState("");
+  const [country, setCountry] = useState("");
+  const [genres, setGenres] = useState([]);
   const { id } = useParams();
+
+  const convertToReadableNumber = (number) => {
+    let HRNumbers = require("human-readable-numbers");
+    return HRNumbers.toHumanString(number);
+  };
+
+  const convertMinsToHrsMins = (mins) => {
+    let h = Math.floor(mins / 60);
+    let m = Math.round(mins % 60);
+    h = h < 10 ? "0" + h : h;
+    m = m < 10 ? "0" + m : m;
+    return `${h}h ${m}m`;
+  };
 
   async function getMovieData() {
     setLoading(true);
@@ -20,6 +38,8 @@ export default function MoviePage() {
       )
       .then((response) => {
         setMovieData(response.data);
+        setCountry(response.data.production_countries[0].name);
+        setGenres(response.data.genres);
       })
       .catch((error) => {
         console.log(error);
@@ -40,8 +60,24 @@ export default function MoviePage() {
       });
   }
 
+  async function getTrailer() {
+    await axios
+      .get(
+        `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`
+      )
+      .then((response) => {
+        setTrailer(
+          `https://www.youtube.com/watch?v=${response.data.results[0].key}`
+        );
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
   useEffect(() => {
     getMovieData();
+    getTrailer();
   }, [id]);
 
   return (
@@ -54,10 +90,12 @@ export default function MoviePage() {
             <div className="moviepage-item_left">
               <img
                 className="moviepage-poster"
-                src={`https://image.tmdb.org/t/p/w342/${movieData.poster_path}`}
+                src={`https://image.tmdb.org/t/p/w342${movieData.poster_path}`}
                 alt="spider-man"
               />
-              <button>Watch Trailer</button>
+              <a href={trailer} target="_blank">
+                <button>Watch Trailer</button>
+              </a>
             </div>
             <div className="moviepage-item_right">
               <div>
@@ -70,30 +108,44 @@ export default function MoviePage() {
                   <h2>About Movie</h2>
                   <div className="moviepage-item_right-about_table">
                     <div className="table-item">
-                      <div className="table-item_key">Year</div>
-                      <div className="table-item_value">2021</div>
+                      <div className="table-item_key">Release Date</div>
+                      <div className="table-item_value">
+                        {movieData.release_date}
+                      </div>
                     </div>
                     <div className="table-item">
                       <div className="table-item_key">Country</div>
-                      <div className="table-item_value">USA, France</div>
+                      <div className="table-item_value">{country}</div>
                     </div>
                     <div className="table-item">
                       <div className="table-item_key">Genere</div>
                       <div className="table-item_value">
-                        Fantasy, Action, Adventure
+                        {genres.map((item) => {
+                          return (
+                            <Link
+                              to={`/genere/${item.id}`}
+                            >{`${item.name} `}</Link>
+                          );
+                        })}
                       </div>
                     </div>
                     <div className="table-item">
                       <div className="table-item_key">Revenue</div>
-                      <div className="table-item_value">200.000.000$</div>
+                      <div className="table-item_value">
+                        {convertToReadableNumber(movieData.revenue)} $
+                      </div>
                     </div>
                     <div className="table-item">
                       <div className="table-item_key">Runtime</div>
-                      <div className="table-item_value">2h 15h</div>
+                      <div className="table-item_value">
+                        {convertMinsToHrsMins(movieData.runtime)}
+                      </div>
                     </div>
                     <div className="table-item">
                       <div className="table-item_key">Rating</div>
-                      <div className="table-item_value">7.6</div>
+                      <div className="table-item_value">
+                        {movieData.vote_average}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -109,6 +161,7 @@ export default function MoviePage() {
                     name={item.title}
                     imgLink={`https://image.tmdb.org/t/p/w185/${item.poster_path}`}
                     id={item.id}
+                    key={item.title}
                   />
                 );
               })}

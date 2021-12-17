@@ -33,7 +33,7 @@ export default function Header() {
         ) : (
           <ul>
             <li>
-              <Link to="/genere">Genere</Link>
+              <Link to="/genere">Genre</Link>
             </li>
             <li>
               <Link to="/popular">Popular</Link>

@@ -98,9 +98,17 @@
   border-radius: 5px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   margin: 0 20px 0 0;
-  transition: .2s ease;
+  transition: 0.2s ease;
 }
 
 .similar-movies_img:hover {
   transform: scale(1.05);
+}
+
+.movie-rating {
+  color: #ccc;
+}
+
+.movie-rating i {
+  color: #f66600;
 }

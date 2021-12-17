@@ -7,7 +7,7 @@ export default function GenerePage() {
     <div className="genere-container">
       <div className="genere-items container">
         <div className="split">
-          <h2>Movie Generes</h2>
+          <h2>Movie Genres</h2>
         </div>
         <ul>
           <li>
