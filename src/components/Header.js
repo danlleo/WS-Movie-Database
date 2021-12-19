@@ -47,9 +47,14 @@ export default function Header() {
           </ul>
         )}
         {focus ? (
-          <i className="fas fa-times" onClick={() => setFocus(false)}></i>
+          <i className="fas fa-times" onClick={() => setFocus(false)} />
         ) : (
-          <i className="fas fa-search" onClick={() => setFocus(true)} />
+          <i
+            className="fas fa-search"
+            onClick={() => {
+              setFocus(true);
+            }}
+          />
         )}
       </div>
     </div>

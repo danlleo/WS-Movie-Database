@@ -3,16 +3,11 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import "../components/styles/HomePage.css";
 import HomeMovieItem from "../components/HomeMovieItem";
-import MainTitle from "../components/MainTitle";
 
 export default function HomePage() {
   const [popularMovieData, setPopularMovieData] = useState([]);
   const [trendingMovieData, setTrendingMovieData] = useState([]);
   const [topMovieData, setTopMovieData] = useState([]);
-  const [mainTitleData, setMainTitleData] = useState({
-    name: "name",
-    background: "background",
-  });
 
   async function getMovieData(category, setData) {
     await axios
@@ -31,16 +26,10 @@ export default function HomePage() {
     getMovieData("popular", setPopularMovieData);
     getMovieData("upcoming", setTrendingMovieData);
     getMovieData("top_rated", setTopMovieData);
-    setMainTitleData({
-      name: "tranny",
-      background:
-        "https://image.tmdb.org/t/p/w1280/2nJJxHjBTDVDIbpHylCsDVQ3alG.jpg",
-    });
   }, []);
 
   return (
     <main>
-      <MainTitle background={mainTitleData.background} />
       <div className="hp-movies container">
         <div className="hp-movies_more">
           <h2>Popular Movies</h2>
